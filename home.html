@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+
+    <script src="./js/popper.js"></script>
+    <script src="./js/bootstrap.js"></script>
+
+
+
+
+
+    <title>Tolet Finder | Home</title>
+</head>
+
+<body>
+
+    <div id="header">
+        <div id="company-name">
+            <p>Cyborg Software limited</p>
+        </div>
+        <div id="site-name">
+            <p> Tolet Finder </p>
+        </div>
+        <div id="nav">
+            <ul>
+                <li id="homePost_btn">Home</li>
+                <li id="createPost_btn">Create Post</li>
+                <li >Search</li>
+                <li>Login</li>
+            </ul>
+        </div>
+    </div>
+    <div id="body-content">
+        <div id="side-bar">
+            <p>This is the side-bar</p>
+        </div>
+        <div id="form-content">
+            <div id="change">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        
+        $('#homePost_btn').click(function () {
+            $('#change').load('post/homePosts.html');
+        });
+
+        $('#createPost_btn').click(function () {
+            $('#change').load('post/createPost.html');
+        });
+
+        
+    });
+</script>
+
+<!--
+    $('#createPost_modal').modal('toggle');
+$('#createPost_modal').modal('show');
+$('#createPost_modal').modal('hide');
+ -->

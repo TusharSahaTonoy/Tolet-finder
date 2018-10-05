@@ -1,0 +1,93 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS',Calibri,'Gill Sans MT','Gill Sans' ,   sans-serif
+}
+body
+#header
+{
+    
+    height:80px;
+    width: 100%;
+    background: #2c5c5194;
+    border-bottom: 3px rebeccapurple solid;
+    color: white;
+}
+body
+#header>#company-name
+{
+    width: 23%;
+    float: left;
+    padding: 10px 0 0 10px;
+    font-weight: bold;
+    font-size: 150%;
+    
+}
+
+body
+#header>#site-name
+{
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-size: 50px;
+    
+}
+
+body
+#header>#nav
+{
+    width: 25%;
+    float: left;
+    /**/background: rgb(37, 75, 97);margin-top: 5px;
+}
+
+body
+#header>#nav>ul
+{
+    padding: 5px 0 0 5px;
+    
+}
+
+body
+#header>#nav>ul>li
+{
+    display: inline;
+    padding: 10px 10px 5px 0; 
+    font-size:130%;
+}
+
+body
+#header>#nav>ul :hover
+{
+    cursor:pointer;
+}
+
+body
+#body-content{
+    position: fixed;
+    height:88%;
+    width: 100%;
+    background: #253a6694;
+}
+#side-bar
+{
+    width: 20%;
+    height: 100%;
+    float: left; 
+    background: #1fdf4994;
+}
+#form-content
+{
+    width: 80%;
+    height: 100%;
+    color:#fff;
+    float: right; 
+    background: #1a031ac4;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+@media (min-width: 992px) {
+}
