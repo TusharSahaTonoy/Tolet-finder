@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <h2>Create Post</h2>
+            <form id="create_acc_form" method="POST">
+                <div class="form-group">
+                    <label for="title">Name: </label>
+                    <input class="form-control" name="name" maxlength="" required>
+
+                    <label for="email">E-mail: </label>
+                    <input class="form-control" name="email" required>
+
+                    <label for="password">Password: </label>
+                    <input class="form-control" name="password" required>
+                    <br>
+
+                </div>
+                <input type="submit" id="create_acc_btn" class="col-md-2 btn btn-success">
+
+            </form>
+        </div>
+
+        <div class="col-md-2"></div>
+        <span id="error" ></span>
+    </div>
+</div>
+
+<script>
+    $("#create_acc_btn").click(function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: './user/createAcc.php',
+            method: 'post',
+            data: $('#create_acc_form').serialize(),
+            success: function (mgs) {
+                if(mgs=='Inserted')
+                {
+                    alert("User Added.");
+                }
+                else
+                {
+                    alert(mgs);
+                    $("#error").html(mgs);
+                }
+                    
+            }
+        });
+
+    })
+</script>

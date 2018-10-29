@@ -1,0 +1,76 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <h2>Create Post</h2>
+            <form id="login_form" method="POST">
+                <div class="form-group">
+
+                    <label for="email">E-mail: </label>
+                    <input class="form-control" name="email">
+
+                    <label for="password">Password: </label>
+                    <input class="form-control" name="password">
+                    <br>
+
+                </div>
+                <input type="submit" id="loginUser_btn" value="Log-in" class="col-md-2 btn btn-success">
+
+            </form>
+        </div>
+
+        <div class="col-md-2"></div>
+        <span id="error"></span>
+    </div>
+</div>
+
+
+<script>
+    $("#loginUser_btn").click(function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: './user/loginUser.php',
+            method: 'post',
+            data: $('#login_form').serialize(),
+            success: function (mgs) {
+                if (mgs == 'Logged in') {
+                    $('#body_change').load('user/profileUser.html');
+
+                    $.ajax({
+                        url: 'home.php',
+                        method: 'get',
+
+                        success: function (mgs) {
+                            if (mgs == 'ok') {
+                                $('#createPost_btn').show();
+                                $('#logout_btn').show();
+                                $('#profile_btn').show();
+
+                                $('#createAcc_btn').hide();
+                                $('#login_btn').hide();
+
+                            }
+                            else if (mgs == 'not ok') {
+                                $('#createPost_btn').hide();
+                                $('#logout_btn').hide();
+                                $('#profile_btn').hide();
+
+                                $('#createAcc_btn').show();
+                                $('#login_btn').show();
+                            }
+                        }
+                    });
+                }
+                else {
+                    alert(mgs);
+                    $("#error").html(mgs);
+                }
+            }
+        });
+
+    })
+</script>
