@@ -1,29 +1,43 @@
-<div class="container">
+<div class="jumbotron-fluid">
 
     <div class="row">
 
         <div class="col-md-2"></div>
 
-        <div class="col-md-8">
-            <h2>Create Post</h2>
-            <form id="login_form" method="POST">
-                <div class="form-group">
-
-                    <label for="email">E-mail: </label>
-                    <input class="form-control" name="email">
-
-                    <label for="password">Password: </label>
-                    <input class="form-control" name="password">
-                    <br>
-
+        <div class="col-md-8" style="margin-top:20px;">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Login</h4>
+                            <hr class="hr_white">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" >
+                            <form id="login_form">
+                                <div class="form-group row">
+                                    <label for="email" class="col-4 col-form-label">Email:</label>
+                                    <div class="col-8">
+                                        <input class="form-control here" name="email" placeholder="Email" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="lastname" class="col-4 col-form-label">Password:</label>
+                                    <div class="col-8">
+                                        <input class="form-control here" name="password" placeholder="Password" type="text">
+                                    </div>
+                                </div>
+                                <input class="col-md-2 btn btn-success" id="loginUser_btn" type="submit" value="Login">
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <input type="submit" id="loginUser_btn" value="Log-in" class="col-md-2 btn btn-success">
-
-            </form>
+            </div>
         </div>
-
         <div class="col-md-2"></div>
-        <span id="error"></span>
+        <span id="error" class="text text-danger"></span>
+
     </div>
 </div>
 
@@ -46,7 +60,7 @@
 
                         success: function (mgs) {
                             if (mgs == 'ok') {
-                                $('#createPost_btn').show();
+                                $('#post_btn').show();
                                 $('#logout_btn').show();
                                 $('#profile_btn').show();
 
@@ -55,7 +69,7 @@
 
                             }
                             else if (mgs == 'not ok') {
-                                $('#createPost_btn').hide();
+                                $('#post_btn').hide();
                                 $('#logout_btn').hide();
                                 $('#profile_btn').hide();
 

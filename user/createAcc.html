@@ -1,31 +1,47 @@
-<div class="container">
-
+<div class="jumbotron-fluid">
     <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" style="margin-top:20px;">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <h3>Create Account</h3>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
 
-        <div class="col-md-2"></div>
+                        <div class="col-md-2"></div>
 
-        <div class="col-md-8">
-            <h2>Create Post</h2>
-            <form id="create_acc_form" method="POST">
-                <div class="form-group">
-                    <label for="title">Name: </label>
-                    <input class="form-control" name="name" maxlength="" required>
+                        <div class="col-md-8">
+                            <form id="create_acc_form" method="POST">
+                                <div class="form-group">
+                                    <label for="title">Name: </label>
+                                    <input class="form-control" name="name" maxlength="" required>
 
-                    <label for="email">E-mail: </label>
-                    <input class="form-control" name="email" required>
+                                    <label for="email">E-mail: </label>
+                                    <input class="form-control" name="email" required>
 
-                    <label for="password">Password: </label>
-                    <input class="form-control" name="password" required>
-                    <br>
+                                    <label for="password">Password: </label>
+                                    <input class="form-control" name="password" required>
+                                    <br>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <input type="submit" id="create_acc_btn" class="col-md-4 btn btn-success">
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <span id="error"></span>
+                    </div>
                 </div>
-                <input type="submit" id="create_acc_btn" class="col-md-2 btn btn-success">
-
-            </form>
+            </div>
         </div>
-
-        <div class="col-md-2"></div>
-        <span id="error" ></span>
     </div>
 </div>
 
@@ -38,16 +54,14 @@
             method: 'post',
             data: $('#create_acc_form').serialize(),
             success: function (mgs) {
-                if(mgs=='Inserted')
-                {
+                if (mgs == 'Inserted') {
                     alert("User Added.");
                 }
-                else
-                {
+                else {
                     alert(mgs);
                     $("#error").html(mgs);
                 }
-                    
+
             }
         });
 

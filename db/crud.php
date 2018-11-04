@@ -16,7 +16,7 @@ class Crud extends DbConfig
         if($result)
             return $result;
         else
-            echo $this->con->error;
+            echo 'Error: '.$this->con->error;
     }
 }
 

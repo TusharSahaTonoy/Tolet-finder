@@ -6,12 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
 
-    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/popper.js"></script>
-    <script src="./js/bootstrap.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
 
     <title>Tolet Finder | Home</title>
 </head>
@@ -28,7 +31,7 @@
         <div id="nav">
             <ul>
                 <li id="home_btn">Home</li>
-                <li id="createPost_btn">Create Post</li>
+                <li id="post_btn">Create Post</li>
                 <li id="createAcc_btn">Create Account</li>
                 <li id="profile_btn">Profile</li>
                 <li id="login_btn">Login</li>
@@ -36,10 +39,16 @@
             </ul>
         </div>
     </div>
-    <div id="body-content">
-        <div id="body_change">
+    <div class="jumbotron-fluid" id="body-content">
+        <div class="row">
         </div>
-        <span id="error"></span>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="body_change">
+                </div>
+            </div>
+        </div>
+        <span class="text text-danger" id="error"></span>
     </div>
 </body>
 
@@ -55,11 +64,11 @@
 
         //home button
         $('#home_btn').click(function () {
-            $('#body_change').load('post/homePosts.html');
-            session_check();
+            window.location.href = './';
+            //session_check();
         });
 
-        $('#createPost_btn').click(function () {
+        $('#post_btn').click(function () {
             $('#body_change').load('post/createPost.html');
         });
         $('#createAcc_btn').click(function () {
@@ -98,7 +107,7 @@
 
                 success: function (mgs) {
                     if (mgs == 'ok') {
-                        $('#createPost_btn').show();
+                        $('#post_btn').show();
                         $('#logout_btn').show();
                         $('#profile_btn').show();
 
@@ -107,7 +116,7 @@
 
                     }
                     else if (mgs == 'not ok') {
-                        $('#createPost_btn').hide();
+                        $('#post_btn').hide();
                         $('#logout_btn').hide();
                         $('#profile_btn').hide();
 
