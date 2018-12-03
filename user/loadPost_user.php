@@ -11,7 +11,7 @@ if(!isset($_SESSION['email']))
 }
 
 $email =$_SESSION['email'];
-$query = "SELECT id,title,description,approved,image1 from posts where user_email='$email';";
+$query = "SELECT id,title,description,price,approved,image1 from posts where user_email='$email';";
 
 $result = $crud->execute($query);
 if($result)
@@ -28,6 +28,8 @@ if($result)
                 <input type="hidden" name="post_id" value="'.$res['id'].'">
                 <h4>'.$res['title'].'</h4>
                 <p>'.$res['description'].'</p>
+                <label>Price: '.$res['price'].'</label>
+                <br>
                 <a class="btn btn-success" href="#">View Project</a>
             </div>
             <div class="col-md-2">

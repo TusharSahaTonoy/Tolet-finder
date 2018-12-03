@@ -103,7 +103,7 @@ $nagotiable = $_POST['nagotiable'];
 //image
 //nagotiable
 
-$query = "INSERT into posts values(null,'$id','$title','$description','$phone','$date','$user_name','$user_email','$preferred_client','$month','$offering','$quantity','$sublet','$district','$aria','$address','$price','$nagotiable','$images[0]','$images[1]','$images[2]','No');";
+$query = "INSERT into posts values(null,'$id','$title','$description','$phone','$date','$user_name','$user_email','$preferred_client','$month','$offering','$quantity','$sublet','$district','$aria','$address','$price','$nagotiable','$images[0]','$images[1]','$images[2]','Yes');";
 
 $result = $crud->execute($query);
 if($result)

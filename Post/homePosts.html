@@ -1,102 +1,111 @@
 <div class="jumbotron-fluid">
 
     <div class="row">
+
         <div class="col-md-4 ">
             <div class="list-group ">
-                <!-- search button -->
-                <div id="search" class="row list-group-item list-group-item-action">
-                    <h5 style="text-align:center;">Click Here To Began Search</h5>
-                </div>
+                <form id="search_form">
 
-                <!-- client type -->
-                <div id="preferred_client" class="row list-group-item list-group-item-action">
-                    <label for="preferred_client" class="col-2">For:</label>
-                    <select name="preferred_client" class="col-9 custom-select">
-                        <option value="Bachelor">Bachelor</option>
-                        <option value="Family">Family</option>
-                        <option value="Female Student">Female Student</option>
-                        <option value="Bachelor">Enployee</option>
-                    </select>
-                </div>
+                    <!-- client type -->
+                    <div id="preferred_client" class="row list-group-item list-group-item-action">
+                        <label for="preferred_client" class="col-2">For:</label>
+                        <select name="preferred_client" class="col-9 custom-select">
+                            <option value="Bachelor">Bachelor</option>
+                            <option value="Family">Family</option>
+                            <option value="Female Student">Female Student</option>
+                            <option value="Bachelor">Enployee</option>
+                        </select>
+                    </div>
 
-                <!-- home type -->
-                <div id="offering" class="row list-group-item list-group-item-action">
-                    <label for="offering" class="col-2 col-form-label">Type:</label>
-                    <select name="offering" class="col-9 custom-select">
-                        <option value="Flat">Flat</option>
-                        <option value="Room" selected>Room</option>
-                        <option value="Seat">Seat</option>
-                        <option value="Floor">Floor</option>
-                    </select>
-                </div>
+                    <!-- home type -->
+                    <div id="offering" class="row list-group-item list-group-item-action">
+                        <label for="offering" class="col-2 col-form-label">Type:</label>
+                        <select name="offering" class="col-9 custom-select">
+                            <option value="Flat">Flat</option>
+                            <option value="Room" selected>Room</option>
+                            <option value="Seat">Seat</option>
+                            <option value="Floor">Floor</option>
+                        </select>
+                    </div>
 
-                <!-- quantity -->
-                <div id="quantity" class="row list-group-item list-group-item-action">
-                    <label for="quantity" class="col-3">Quntity:</label>
-                    <input class="col-8" type="number" name="quantity" max="20" min="1" value="1" required>
+                    <!-- quantity -->
+                    <div id="quantity" class="row list-group-item list-group-item-action">
+                        <label for="quantity" class="col-3">Quntity:</label>
+                        <input class="col-8" type="number" name="quantity" max="20" min="1" value="1" required>
 
-                </div>
+                    </div>
 
-                <!-- sublet -->
-                <div id="sublet" class="row list-group-item list-group-item-action">
-                    <label for="sublet" class="col-3 col-form-label">Sublet?:</label>
-                    <select name="sublet" class="col-3 custom-select">
-                        <option value="Yes">Yes</option>
-                        <option value="No" selected>No</option>
-                    </select>
-                </div>
+                    <!-- sublet -->
+                    <div id="sublet" class="row list-group-item list-group-item-action">
+                        <label for="sublet" class="col-3 col-form-label">Sublet?:</label>
+                        <select name="sublet" class="col-3 custom-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No" selected>No</option>
+                        </select>
+                    </div>
 
-                <!-- Month -->
-                <div id="month" class="row list-group-item list-group-item-action">
-                    <label for="month" class="col-4 col-form-label">Selcet Month:</label>
-                    <select name="month" class="col-7 custom-select">
-                        <option value="Jannuary">Jannuary</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="Septembar">September</option>
-                        <option value="Octobar">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                    </select>
-                </div>
+                    <!-- Month -->
+                    <div id="month" class="row list-group-item list-group-item-action">
+                        <label for="month" class="col-4 col-form-label">Selcet Month:</label>
+                        <select name="month" class="col-7 custom-select">
+                            <option value="Jannuary">Jannuary</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="Septembar">September</option>
+                            <option value="Octobar">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
 
-                <!-- district -->
-                <div id="district" class="row list-group-item list-group-item-action">
-                    <label for="district" class="col-5 col-form-label">Select District:</label>
                     <!-- district -->
-                    <select name="district" class="col-6 custom-select">
-                        <option value="Dhaka" selected>Dhaka</option>
-                        <option value="Gazipur">Gazipur</option>
-                        <option value="Cumilla">Cumilla</option>
-                        <option value="Barisal">Barisal</option>
-                        <option value="Chandpur">Chandpur</option>
-                        <option value="Chittagong">Chittagong</option>
-                        <option value="Noakhali">Noakhali</option>
-                    </select>
-                </div>
-                <!-- Price slider -->
-                <div class="row list-group-item list-group-item-action">
-                    <p>Price(taka):
-                        <label for="minValue" id="minValue">1000</label> - <label for="maxValue" id="maxValue">100000</label>
-                        <br>
-                        <div id="slider"></div>
-                    </p>
-                </div>
-                <!-- nagotiable -->
-                <div id="search" class="row list-group-item list-group-item-action">
-                    <label for="nagotiable" class="col-3 col-form-label">Nagotiable:</label>
-                    <select name="nagotiable" class="col-3 custom-select">
-                        <option value="Yes">Yes</option>
-                        <option value="No" selected>No</option>
-                    </select>
-                </div>
+                    <div id="district" class="row list-group-item list-group-item-action">
+                        <label for="district" class="col-5 col-form-label">Select District:</label>
+                        <!-- district -->
+                        <select name="district" class="col-6 custom-select">
+                            <option value="Dhaka" selected>Dhaka</option>
+                            <option value="Gazipur">Gazipur</option>
+                            <option value="Cumilla">Cumilla</option>
+                            <option value="Barisal">Barisal</option>
+                            <option value="Chandpur">Chandpur</option>
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Noakhali">Noakhali</option>
+                        </select>
+                    </div>
+                    <!-- Price slider -->
+                    <div class="row list-group-item list-group-item-action">
+                        <p>Price Range (taka):
+                            <br>
+                            <input name="minValue" id="minValue" value="1000">
+                            <input name="maxValue" id="maxValue" value="100000">
+                            <br>
+
+                            <div id="slider" name="price-range"></div>
+                        </p>
+                    </div>
+                    <!-- nagotiable -->
+                    <div id="nagotiable" class="row list-group-item list-group-item-action">
+                        <label for="nagotiable" class="col-3 col-form-label">Nagotiable?:</label>
+                        <select name="nagotiable" class="col-3 custom-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No" selected>No</option>
+                        </select>
+                    </div>
+
+                    <!-- search button -->
+                    <div id="search_btn" class="row list-group-item list-group-item-action btn" style="text-align:center">
+                        <h5>Began Search</h5>
+                    </div>
+                </form>
             </div>
+
         </div>
+
 
         <!-- loaded post-->
         <div class="col-md-8">
@@ -115,11 +124,11 @@
         range: true,
         min: 1000,
         max: 100000,
-        values:[1000,100000],
+        values: [1000, 100000],
         step: 500,
         slide: function (event, ui) {
-            $("#minValue").html(ui.values[0]);
-            $("#maxValue").html(ui.values[1]);
+            $("#minValue").val(ui.values[0]);
+            $("#maxValue").val(ui.values[1]);
         }
     });
 
@@ -130,5 +139,20 @@
         success: function (mgs) {
             $('#postLoad_home').html(mgs);
         }
+    });
+
+    $("#search_btn").click(function () {
+        $.ajax({
+            url: './post/searchPost.php',
+            method: 'post',
+            data: $('#search_form').serialize(),
+
+            success: function (mgs) {
+                if(mgs=='')
+                    $('#postLoad_home').html('No Post Found');
+                else
+                    $('#postLoad_home').html(mgs);
+            }
+        });
     });
 </script>
