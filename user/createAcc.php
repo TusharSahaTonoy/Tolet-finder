@@ -21,7 +21,11 @@ if(!$res['count'])
     $query="insert into user values('$name','$email','$pass')";
     $result =$crud->execute($query);
     if($result)
+    {
+        session_start();
+        $_SESSION['email'] = $res['email'];
         echo "Inserted";
+    }
     else
         echo "Could not insert";
 }

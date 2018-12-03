@@ -3,7 +3,7 @@
 include_once('../db/crud.php');
 $crud = new Crud();
 
-$query = "SELECT id,title,description,price from posts where approved='Yes';";
+$query = "SELECT id,title,description,price,image1 from posts where approved='Yes';";
 
 $result = $crud->execute($query);
 if($result)
@@ -13,7 +13,7 @@ if($result)
         echo '<div class="row">
             <div class="col-md-5">
                 <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="../Tolet search - Copy/image/'.$res['image1'].'" height="300px" width="700px" alt="POST IMAGE">
                 </a>
             </div>
             <div class="col-md-7">
@@ -24,8 +24,9 @@ if($result)
                 <br>
                 <a class="btn btn-success" href="#">View Project</a>
             </div>
+
         </div>
-        <hr class="hr_purple">';
+        <hr class="hr_white">';
     }
 
 }

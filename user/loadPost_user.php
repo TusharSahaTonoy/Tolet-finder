@@ -11,7 +11,7 @@ if(!isset($_SESSION['email']))
 }
 
 $email =$_SESSION['email'];
-$query = "SELECT id,title,description,approved from posts where user_email='$email';";
+$query = "SELECT id,title,description,approved,image1 from posts where user_email='$email';";
 
 $result = $crud->execute($query);
 if($result)
@@ -21,7 +21,7 @@ if($result)
         echo '<div class="row">
             <div class="col-md-5">
                 <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="../Tolet search - Copy/image/'.$res['image1'].'" height="270px" width="650px" alt="Post image">
                 </a>
             </div>
             <div class="col-md-5">
@@ -34,7 +34,7 @@ if($result)
                 <p>Approved: <label class="col-4 btn btn-success">'.$res['approved'].'</label></P>
             </div>
         </div>
-        <hr class="hr_purple">';
+        <hr class="hr_green">';
     }
 
 }
@@ -43,4 +43,5 @@ else
     echo "<br>Could not execute the query<br>";
 }
 
+// '.$res['image1'].'
 ?>

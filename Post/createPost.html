@@ -16,13 +16,13 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-10">
-                            <form id="createPost_form" method="POST">
+                            <form id="createPost_form" method="POST" enctype="multipart/form-data">
                                 <!-- Post id -->
                                 <!-- title -->
                                 <div class="form-group row">
                                     <label for="title" class="col-3 col-form-label">Title:</label>
                                     <div class="col-9">
-                                        <input id="title" name="title" placeholder="Give a nice title of your post within 100 words"
+                                        <input id="title" name="title" value="Give a nice title of your post within 100 words"
                                             maxlength="100" class="form-control here" required="required" type="text">
                                     </div>
                                 </div>
@@ -32,8 +32,8 @@
                                     <div class="col-9">
                                         <textarea class="form-control" id="description" name="description" cols="40"
                                             rows="4" placeholder="Give detailed description of your post within 1000 words"
-                                            maxlength="1000" required></textarea>
-                                            
+                                            maxlength="1000" required>Give detailed description of your post within 1000 words</textarea>
+
                                     </div>
                                 </div>
 
@@ -42,7 +42,7 @@
                                     <label for="phone" class="col-3 col-form-label">Phone:</label>
                                     <div class="col-9">
                                         <input name="phone" placeholder="Give your phone number" maxlength="100" class="form-control here"
-                                            required="required" type="text">
+                                            required="required" type="number" value="123456">
                                     </div>
                                 </div>
 
@@ -133,7 +133,7 @@
                                 <div class="form-group row">
                                     <label for="aria" class="col-3 col-form-label">Name Of The Aria:</label>
                                     <div class="col-9">
-                                        <input name="aria" placeholder="Give The Name Of The Aria" maxlength="50" class="form-control here"
+                                        <input name="aria" value="Give The Name Of The Aria" maxlength="50" class="form-control here"
                                             required="required" type="text">
                                     </div>
                                 </div>
@@ -141,8 +141,8 @@
                                 <div class="form-group row">
                                     <label for="address" class="col-3 col-form-label">Full Address:</label>
                                     <div class="col-9">
-                                        <input name="address" placeholder="Give The Full Address Of The Location"
-                                            maxlength="50" class="form-control here" required="required" type="text">
+                                        <input name="address" value="Give The Full Address Of The Location" maxlength="50"
+                                            class="form-control here" required="required" type="text">
                                     </div>
                                 </div>
                                 <!-- price -->
@@ -150,7 +150,7 @@
                                     <label for="price" class="col-3 col-form-label">price:</label>
                                     <div class="col-6">
                                         <input type="number" name="price" max="1000000" min="1000" class="form-control here"
-                                        placeholder="Minimum=1000 and Maximum=1000000" required="required">
+                                            placeholder="Minimum=1000 and Maximum=1000000" value="2000" required="required">
                                     </div>
                                     <label class="col-3 col-form-label">Taka/Month</label>
                                 </div>
@@ -164,11 +164,30 @@
                                         </select>
                                     </div>
                                 </div>
+                                <!-- Image -->
+                                <div class="form-group row">
+                                    <label for="image" class="col-3 col-form-label">Upload Image:</label>
+                                    <div class="col-9">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <input type="file" name="image1" accept="image/*" reqiured>
+                                                <label class="text text-warning">Title Image (Reqiured).</label>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <input type="file" name="image2" accept="image/*">
+                                            </li>
+                                            <li class="list-group-item">
+                                                <input type="file" name="image3" accept="image/*">
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
                                 <hr>
                                 <!-- submit-->
                                 <div class="row">
                                     <div class="col-md-4"></div>
-                                    <input id="createPost_btn" class="col-md-5 btn btn-success" type="submit" value="Create Post">
+                                    <input id="createPost_btn" type="submit" class="col-md-5 btn btn-success" value="Create Post">
                                 </div>
                             </form>
                         </div>
@@ -190,31 +209,32 @@
     var form = $("#createPost_form");
     form.validate();
 
-    $('#createPost_btn').click(function (event) {
+    $('#createPost_form').on('submit', function (event) {
         event.preventDefault();
-        
-        if(form.valid())
-        {
-            $.ajax({
-            url: './post/createPost.php',
-            method: 'post',
-            data: $('#createPost_form').serialize(),
 
-            success: function (mgs) {
-                if (mgs == 'Insert Successfull') {
-                    alert(mgs);
-                    $('#profile_btn').click();
+        if (form.valid()) {
+            $.ajax({
+                url: './post/createPost.php',
+                method: 'post',
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+
+                success: function (mgs) {
+                    if (mgs == 'Insert Successfull') {
+                        alert(mgs);
+                        $('#profile_btn').click();
+                    }
+                    else {
+                        alert("Error");
+                        $('#error').html(mgs);
+                    }
                 }
-                else {
-                    alert(mgs);
-                    $('#error').html(mgs);
-                }
-            }
 
             });
         }
-        else
-        {   
+        else {
             alert("Please fill all required fields.");
         }
     });
