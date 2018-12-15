@@ -24,7 +24,7 @@ if($result)
         echo '<div class="row">
             <div class="col-md-5">
                 <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="../Tolet search - Copy/image/'.$res['image1'].'" height="300px" width="700px" alt="POST IMAGE">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="../Tolet search - Copy/image/'.$res['image1'].'" height="250px" width="700px" alt="POST IMAGE">
                 </a>
             </div>
             <div class="col-md-7">

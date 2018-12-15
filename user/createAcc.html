@@ -16,19 +16,20 @@
                         <div class="col-md-2"></div>
 
                         <div class="col-md-8">
-                            <form id="create_acc_form" method="POST">
+                            <form id="create_acc_form">
                                 <div class="form-group">
                                     <label for="title">Name: </label>
-                                    <input class="form-control" name="name" maxlength="" required>
-
-                                    <label for="email">E-mail: </label>
-                                    <input class="form-control" name="email" required>
-
-                                    <label for="password">Password: </label>
-                                    <input class="form-control" type="password" name="password" required>
-                                    <br>
-
+                                    <input class="form-control" name="name" maxlength="50" required>
                                 </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail: </label>
+                                    <input class="form-control" name="email" maxlength="100" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password: </label>
+                                    <input class="form-control" type="password" name="password" maxlength="50" required>
+                                </div>
+                                <br>
                                 <div class="row">
                                     <div class="col-md-4"></div>
                                     <input type="submit" id="create_acc_btn" class="col-md-4 btn btn-success">
@@ -36,8 +37,6 @@
 
                             </form>
                         </div>
-
-                        <span id="error"></span>
                     </div>
                 </div>
             </div>
@@ -46,51 +45,56 @@
 </div>
 
 <script>
+
+    var form = $("#create_acc_form");
+    form.validate();
+
     $("#create_acc_btn").click(function (event) {
+
         event.preventDefault();
+        if (form.valid()) {
+            $.ajax({
+                url: './user/createAcc.php',
+                method: 'post',
+                data: $('#create_acc_form').serialize(),
+                success: function (mgs) {
+                    if (mgs == 'Inserted') {
+                        alert("User Added.");
+                        $('#body_change').load('user/profileUser.html');
 
-        $.ajax({
-            url: './user/createAcc.php',
-            method: 'post',
-            data: $('#create_acc_form').serialize(),
-            success: function (mgs) {
-                if (mgs == 'Inserted') {
-                    alert("User Added.");
-                    $('#body_change').load('user/profileUser.html');
+                        $.ajax({
+                            url: 'home.php',
+                            method: 'get',
 
-                    $.ajax({
-                        url: 'home.php',
-                        method: 'get',
+                            success: function (mgs) {
+                                if (mgs == 'ok') {
+                                    $('#post_btn').show();
+                                    $('#logout_btn').show();
+                                    $('#profile_btn').show();
 
-                        success: function (mgs) {
-                            if (mgs == 'ok') {
-                                $('#post_btn').show();
-                                $('#logout_btn').show();
-                                $('#profile_btn').show();
+                                    $('#createAcc_btn').hide();
+                                    $('#login_btn').hide();
 
-                                $('#createAcc_btn').hide();
-                                $('#login_btn').hide();
+                                }
+                                else if (mgs == 'not ok') {
+                                    $('#post_btn').hide();
+                                    $('#logout_btn').hide();
+                                    $('#profile_btn').hide();
 
+                                    $('#createAcc_btn').show();
+                                    $('#login_btn').show();
+                                }
                             }
-                            else if (mgs == 'not ok') {
-                                $('#post_btn').hide();
-                                $('#logout_btn').hide();
-                                $('#profile_btn').hide();
+                        });
 
-                                $('#createAcc_btn').show();
-                                $('#login_btn').show();
-                            }
-                        }
-                    });
+                    }
+                    else {
+                        alert(mgs);
+                        $("#error").html(mgs);
+                    }
 
                 }
-                else {
-                    alert(mgs);
-                    $("#error").html(mgs);
-                }
-
-            }
-        });
-
+            });
+        }
     })
 </script>

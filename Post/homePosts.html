@@ -81,8 +81,8 @@
                     <div class="row list-group-item list-group-item-action">
                         <p>Price Range (taka):
                             <br>
-                            <input name="minValue" id="minValue" value="1000">
-                            <input name="maxValue" id="maxValue" value="100000">
+                            <input type="number" name="minValue" id="minValue" value="1000">
+                            <input type="number" name="maxValue" id="maxValue" value="100000">
                             <br>
 
                             <div id="slider" name="price-range"></div>
@@ -90,7 +90,7 @@
                     </div>
                     <!-- nagotiable -->
                     <div id="nagotiable" class="row list-group-item list-group-item-action">
-                        <label for="nagotiable" class="col-3 col-form-label">Nagotiable?:</label>
+                        <label for="nagotiable" class="col-3 col-form-label">Nagotiable?:</label> &nbsp;&nbsp;
                         <select name="nagotiable" class="col-3 custom-select">
                             <option value="Yes">Yes</option>
                             <option value="No" selected>No</option>
@@ -138,6 +138,8 @@
 
         success: function (mgs) {
             $('#postLoad_home').html(mgs);
+
+            
         }
     });
 
@@ -155,4 +157,15 @@
             }
         });
     });
+
+    //View button
+    $(document).on('click','.view_btn',function()
+    {
+        var post_id = $(this).attr('name');
+        var post = {"post_id":post_id};
+        localStorage.setItem('post', JSON.stringify(post));
+
+        $("#body_change").load('./post/detailPost.html');
+    });
+    
 </script>

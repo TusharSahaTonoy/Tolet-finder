@@ -17,12 +17,12 @@ if($result)
                 </a>
             </div>
             <div class="col-md-7">
-                <input type="hidden" name="post_id" value="'.$res['id'].'">
+                
                 <h4>'.$res['title'].'</h4>
                 <p>'.$res['description'].'</p>
                 <label>Price: '.$res['price'].'</label>
                 <br>
-                <a class="btn btn-success" href="#">View Project</a>
+                <button name="'.$res['id'].'" class="btn btn-success view_btn" >View Post</button>
             </div>
 
         </div>

@@ -30,7 +30,7 @@ if($result)
                 <p>'.$res['description'].'</p>
                 <label>Price: '.$res['price'].'</label>
                 <br>
-                <a class="btn btn-success" href="#">View Project</a>
+                <a class="btn btn-success" href="#">View Post</a>
             </div>
             <div class="col-md-2">
                 <p>Approved: <label class="col-4 btn btn-success">'.$res['approved'].'</label></P>

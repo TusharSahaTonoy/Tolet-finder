@@ -22,8 +22,8 @@
                                 <div class="form-group row">
                                     <label for="title" class="col-3 col-form-label">Title:</label>
                                     <div class="col-9">
-                                        <input id="title" name="title" value="Give a nice title of your post within 100 words"
-                                            maxlength="100" class="form-control here" required="required" type="text">
+                                        <input id="title" name="title" placeholder="Give a nice title of your post within 100 words"
+                                            maxlength="100" class="form-control here" required="required" autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- description -->
@@ -32,7 +32,7 @@
                                     <div class="col-9">
                                         <textarea class="form-control" id="description" name="description" cols="40"
                                             rows="4" placeholder="Give detailed description of your post within 1000 words"
-                                            maxlength="1000" required>Give detailed description of your post within 1000 words</textarea>
+                                            maxlength="1000" required></textarea>
 
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@
                                     <label for="phone" class="col-3 col-form-label">Phone:</label>
                                     <div class="col-9">
                                         <input name="phone" placeholder="Give your phone number" maxlength="100" class="form-control here"
-                                            required="required" type="number" value="123456">
+                                            required="required" type="number" >
                                     </div>
                                 </div>
 
@@ -133,7 +133,7 @@
                                 <div class="form-group row">
                                     <label for="aria" class="col-3 col-form-label">Name Of The Aria:</label>
                                     <div class="col-9">
-                                        <input name="aria" value="Give The Name Of The Aria" maxlength="50" class="form-control here"
+                                        <input name="aria" placeholder="Give The Name Of The Aria" maxlength="100" class="form-control here"
                                             required="required" type="text">
                                     </div>
                                 </div>
@@ -141,7 +141,7 @@
                                 <div class="form-group row">
                                     <label for="address" class="col-3 col-form-label">Full Address:</label>
                                     <div class="col-9">
-                                        <input name="address" value="Give The Full Address Of The Location" maxlength="50"
+                                        <input name="address" placeholder="Give The Full Address Of The Location" maxlength="100"
                                             class="form-control here" required="required" type="text">
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                     <label for="price" class="col-3 col-form-label">price:</label>
                                     <div class="col-6">
                                         <input type="number" name="price" max="1000000" min="1000" class="form-control here"
-                                            placeholder="Minimum=1000 and Maximum=1000000" value="2000" required="required">
+                                            placeholder="Minimum=1000 and Maximum=1000000" required="required">
                                     </div>
                                     <label class="col-3 col-form-label">Taka/Month</label>
                                 </div>
@@ -226,7 +226,12 @@
                         alert(mgs);
                         $('#profile_btn').click();
                     }
-                    else {
+                    else if (mgs == 'please select an title image'){
+                        alert(mgs);
+                        $('#error').html(mgs);
+                    }
+                    else
+                    {
                         alert("Error");
                         $('#error').html(mgs);
                     }

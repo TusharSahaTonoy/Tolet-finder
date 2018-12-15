@@ -23,7 +23,7 @@ if(!$res['count'])
     if($result)
     {
         session_start();
-        $_SESSION['email'] = $res['email'];
+        $_SESSION['email'] = $email;
         echo "Inserted";
     }
     else
