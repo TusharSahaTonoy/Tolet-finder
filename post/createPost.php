@@ -111,7 +111,7 @@ if($result)
     echo 'Insert Successfull';
 }else
 {
-    echo ' didn\'make it.Error in executing the query ';
+    echo ' didn\'t make it.Error in executing the query ';
 }
 
 // echo '<br>';

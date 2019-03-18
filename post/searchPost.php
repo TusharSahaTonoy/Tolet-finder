@@ -14,7 +14,7 @@ $nagotiable         = $_POST['nagotiable'];
 include_once('../db/crud.php');
 $crud = new Crud();
 
-$query = "SELECT id,title,description,price,image1 from posts where preferred_client='$preferred_client' and offering='$offering' and quantity='$quantity' and sublet='$sublet' and month='$month' and district='$district'  and nagotiable='$nagotiable' and  approved='Yes' and price BETWEEN '$minValue' and '$maxValue';";
+$query = "SELECT id,title,description,price,image1 from posts where preferred_client='$preferred_client' and offering='$offering' and quantity='$quantity' or sublet='$sublet' and month='$month' or district='$district'  and nagotiable='$nagotiable' and  approved='Yes' and price BETWEEN '$minValue' and '$maxValue';";
 
 $result = $crud->execute($query);
 if($result)
@@ -33,7 +33,7 @@ if($result)
                 <p>'.$res['description'].'</p>
                 <label>Price: '.$res['price'].'</label>
                 <br>
-                <a class="btn btn-success" href="#">View Project</a>
+                <button name="'.$res['id'].'" class="btn btn-success view_btn" >View Post</button>
             </div>
 
         </div>
